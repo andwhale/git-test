@@ -1,2 +1,3 @@
 <script>
+alert(‘Hello there!’);
 </script>
