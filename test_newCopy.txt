@@ -1,6 +1,4 @@
 <script>
 alert(‘Hello’);
 alert(‘Hello there!’);
-alert(‘Hello there again!’);
-alert(‘’);
 </script>
