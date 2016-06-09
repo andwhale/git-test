@@ -1,0 +1,32 @@
+<meta charset="utf-8">
+<script>
+var noname = 'empty';
+var round = 0;
+var start = prompt('Хотите сыграть в русскую рулетку? (да/нет)');
+if (start == 'нет') {
+	alert('Ну и ладно.\n\rКонец игры.');
+} else if (start != 'да' && start != 'нет') {
+	alert('Отвечать нужно \"да\" или \"нет\".');
+} else if (start == 'да') {
+
+	//цикл	
+	do {
+		if ((Math.random()*6)<1) {
+			alert('Вот и все...');
+			break;
+		}
+		round++;
+	} while (true && prompt('Скитыщь!\n\rИдем дальше? (да/нет)') == 'да');
+
+	//учитываем окончания
+	if (round == 1) {
+		alert('Вы продержались ' + round + ' раунд');
+	} else {
+		if (round == 2 || round == 3 || round == 4) {
+			alert('Вы продержались ' + round + ' раунда');
+		} else {
+			alert('Вы продержались ' + round + ' раундов');
+		}
+	}
+}
+</script>

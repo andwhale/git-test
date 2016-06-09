@@ -1,0 +1,43 @@
+<meta charset="utf-8">
+<script>
+var arr = [];
+var zero = 0;
+var rounds = 100;
+var i = 0;
+var red = 0;
+var redF = 0;
+
+//выпавшие числа
+/*for (i=0; i<=rounds; i++) {
+	arr.push(Math.round(Math.random()*36));
+}
+alert(arr);*/
+
+//количество зеро
+/*for (i=0; i<arr.length; i++) {
+	if (arr[i] == 0) {
+		zero++;
+	}
+}
+zero = zero/arr.length*100;
+alert('Процент выпадения зеро: ' + zero + '%.');*/
+
+for (i; i <= rounds; i++) {
+	arr.push(Math.round(Math.random()*2-1));
+}
+alert(arr);
+
+for (i = 0; i < arr.length; i++) {
+	if (arr[i] == -1) {
+		red = 0;
+		while(i < arr.length && arr[i] == -1) {
+			i++;
+			red++;
+		}
+		if (red > redF) {
+			redF = red;
+		}
+	}
+}
+alert(redF);
+</script>

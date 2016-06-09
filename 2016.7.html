@@ -1,0 +1,82 @@
+<meta charset="utf-8">
+<script>
+
+function getRandomInt(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+function getCard() {
+	var cards = ['6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+	return cards[getRandomInt(0, cards.length - 1)];
+}
+function getSum(hand) {
+	var sum = 0;
+
+	for (var i=0; i<hand.length; i++) {
+		if (hand[i] != 'A') {
+			if (hand[i] == 'J' || hand[i] == 'Q' || hand[i] == 'K') {
+				sum = sum + 10;
+			} else {
+				sum = sum + parseInt(hand [i]);
+			}
+		}
+	}
+	for (var i = 0; i < hand.length; i++) {
+		if (hand[i] == 'A') {
+			if (sum > 10) {
+				sum = sum + 1;
+			} else {
+				sum = sum + 11;
+			}
+		}
+	}
+	return sum;
+}
+
+function getStatus() {
+	return 'Дилер: ' + dealer.join(', ') + '. Игрок: ' + player.join(', ');
+}
+
+var dealer = [getCard()];
+var player = [getCard(), getCard(), getCard()];
+//alert(getStatus() + ' (' + getSum(player) + ').');
+//alert('Сумма карт у игрока: ' + getSum(player));
+
+var answer = '';
+if (getSum(player) > 21) {
+	alert(getStatus() + ' (' + getSum(player) + '). Даже поиграть не успели...');
+} else if (getSum(player) == 21) {
+	alert(getSum(player) + '. Это блэкджек!');
+} else {
+	do {
+	answer = prompt(getStatus() + ' (' + getSum(player) + '). Еще карту? 1/...');
+	if (answer == 1) {
+		player.push(getCard());
+		if (getSum(player) > 21) {
+			alert(getStatus() + ' (' + getSum(player) + '). Вы проиграли!');
+			break;
+		} else if (getSum(player) = 21) {
+			alert(getSum(player) + '. Это блэкджек!');
+			break;
+		}
+	} else {
+		while (getSum(dealer) < 17) {
+			dealer.push(getCard());
+		}
+		
+		var sumDealer = getSum(dealer);
+		var sumPlayer = getSum(player);
+
+		if (sumDealer == 21) {
+			alert(getStatus() + '. БД у дилера!');
+		} else if (sumDealer == sumPlayer) {
+			alert(getStatus() + '. Ничья');
+		} else if (sumDealer > sumPlayer) {
+			alert(getStatus() + '. Дилер побеждает');
+		} else {
+			alert (getStatus() + '. Вы победили');
+		}
+	}
+}	while (answer == '1' && getSum(player) < 21);
+alert('Конец');
+}
+</script>

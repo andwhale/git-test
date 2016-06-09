@@ -1,0 +1,11 @@
+<meta charset="utf-8">
+<script>
+var S = parseInt(prompt('Введите сумму вклада'));
+var perY = parseInt(prompt('Введите процентную ставку'));
+var term = parseInt(prompt('Введите срок вклада'));
+
+for (var termS=1; termS <= term; termS++) {
+	S = S + S / 100 * perY;
+	alert('Ваша сумма с процентами: ' + S.toFixed(2) + '. Срок вклада: ' + termS);
+}
+</script>

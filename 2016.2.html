@@ -1,0 +1,51 @@
+<meta charset="utf-8">
+<script>
+
+var a1 = ("Хлеб");
+var a2 = ("хлеб");
+var b1 = ("м");
+var b2 = ("М");
+var c1 = ("Яблоко");
+var c2 = ("яблоко");
+var answer = 0;
+
+var a = prompt("Что всему голова?");
+if (a == a1 || a == a2) {
+	alert("Спасибо за ответ 1. TRUE");
+	var answer = parseInt(answer+1);
+}
+	else {
+		alert(" Спасибо за ответ 1. NOT TRUE");
+	}
+
+var b = prompt("Что находится в середине земли?");
+if (b == b1 || b == b2) {
+	alert("Спасибо за ответ 2. TRUE");
+	var answer = parseInt(answer+1);
+}
+	else {
+		alert("Спасибо за ответ 2. NOT TRUE");
+	}
+
+var c = prompt("Что упало на голову Ньютону?");
+if (c == c1 || c == c2) {
+	alert("Спасибо за ответ 3. TRUE");
+	var answer = parseInt(answer+1);
+}
+	else {
+		alert("Спасибо за ответ 3. NOT TRUE");
+	}
+
+if (answer == 0) {
+	alert("У Вас " + answer + " правильных ответов.\r\nДа уж...");
+}
+if (answer == 1) {
+	alert("У Вас " + answer + " правильный ответ.\r\nМогло быть и лучше.");
+}
+if (answer >= 2 && answer < 3) {
+	alert("У Вас " + answer + " правильных ответа.\r\nМогло быть и лучше.");
+}
+if (answer >= 3) {
+	alert("У Вас " + answer + " правильных ответа.\r\nНорм!");
+}
+</script>
