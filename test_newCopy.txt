@@ -1,4 +1,3 @@
 <script>
-alert(‘Hello there!’);
-alert(‘Hello there again!’);
+alert(‘Hello’);
 </script>
